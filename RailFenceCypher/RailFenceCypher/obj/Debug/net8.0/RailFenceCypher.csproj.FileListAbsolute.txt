@@ -1,0 +1,15 @@
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\bin\Debug\net8.0\RailFenceCypher.exe
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\bin\Debug\net8.0\RailFenceCypher.deps.json
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\bin\Debug\net8.0\RailFenceCypher.runtimeconfig.json
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\bin\Debug\net8.0\RailFenceCypher.dll
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\bin\Debug\net8.0\RailFenceCypher.pdb
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\obj\Debug\net8.0\RailFenceCypher.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\obj\Debug\net8.0\RailFenceCypher.AssemblyInfoInputs.cache
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\obj\Debug\net8.0\RailFenceCypher.AssemblyInfo.cs
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\obj\Debug\net8.0\RailFenceCypher.csproj.CoreCompileInputs.cache
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\obj\Debug\net8.0\RailFenceCypher.sourcelink.json
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\obj\Debug\net8.0\RailFenceCypher.dll
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\obj\Debug\net8.0\refint\RailFenceCypher.dll
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\obj\Debug\net8.0\RailFenceCypher.pdb
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\obj\Debug\net8.0\RailFenceCypher.genruntimeconfig.cache
+C:\Users\chris.freckleton\source\repos\Katas\RailFenceCypher\RailFenceCypher\RailFenceCypher\obj\Debug\net8.0\ref\RailFenceCypher.dll
