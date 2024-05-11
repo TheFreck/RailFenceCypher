@@ -1,4 +1,5 @@
 using Machine.Specifications;
+using System.Threading;
 
 namespace RailFenceCypher.Specs
 {
@@ -6,9 +7,39 @@ namespace RailFenceCypher.Specs
     {
         Establish context = () =>
         {
-            inputString = "WEAREDISCOVEREDFLEEATONCE";
-            inputRails = new int[] { 3,4,7 };
-            expect = new string[] { "WECRLTEERDSOEEFEAOCAIVDEN","WIREEEDSEEEACAECVDLTNROFO", "WREEEECAVDNROFOECLTDSEAIE" };
+            //inputStrings = new string[] { "WEAREDISCOVEREDFLEEATONCE","WEAREDISCOVEREDFLEEATONCE","WEAREDISCOVEREDFLEEATONCE","WEAREDISCOVEREDFLEEATONCE",
+            //    "distinctio Deserunt minima iure provident, veritatis Porro fugiat alias sit! excepturi exercitationem non autem iure ipsa iure quibusdam Amet officiis asperiores unde, maiores!jk unde! facere molestiae. Voluptate ipsam quasi eveniet",
+            //    "Deserunt quasi ipsa distinctio Voluptate fugiat sit! exercitationem autem provident, non eveniet unde! iure iure minima alias Porro iure quibusdam officiis veritatis asperiores molestiae. Amet unde, facere maiores!jk ipsam excepturi",
+            //    "veritatis exercitationem iure quasi ipsa provident, unde! molestiae. iure eveniet autem Deserunt Porro Voluptate sit! alias maiores!jk iure asperiores ipsam non minima excepturi quibusdam unde, facere Amet officiis distinctio fugiat"
+            //};
+            //inputRails = new int[] { 3,4,7,6, 39,3,30};
+            //expect = new string[] { "WECRLTEERDSOEEFEAOCAIVDEN","WIREEEDSEEEACAECVDLTNROFO", "WREEEECAVDNROFOECLTDSEAIE", "WVTEOEAOACRENRSEECEIDLEDF",
+            //    "d sni!eapeistx eveticsretiseii n pioicstcrstauieaiirfsuolif q a ou D e nmetxtdasaeeeseirm,prgcA iuui m nftmaet aait otdoamrisrtirouepnonbsuiPei!lm mujoas qkV in   itoeu.uanrnert udaeiaiei ru !tpeta srvesfeo mpalv, icoiti emdnuer ere" ,
+            //    "vm!ue ot trtr!liapiaieesle itds icqganteaxuutuitseifi aa  b s,etmauo t.pamsien uiidtxeilonaceduorimnrirVem icve s utio o!nnstrerjodiapvrknedt eo  , ianPim sosi uafinpetrsaieitnepccm  u iei iara rfisuessefuatspe orueeerA eqmDromt  ie"
+            //};
+            inputStrings = new string[] {
+                "WEAREDISCOVEREDFLEEATONCE",
+                "123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz",
+                "123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz",
+                "123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz",
+                "123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz",
+                "123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz",
+                "123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz",
+                "123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz",
+                "123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz",
+            };
+            inputRails = new int[] { 5, 5, 9, 25, 19, 20, 40, 50, 10 };
+            expect = new string[] {
+                "WCLEESOFECAIVDENRDEEAOERT",
+                "19GOWdlt28 FHNPVXcekmsu37AEIMQUYbfjnrvz46BDJLRTZagioqwy5CKS hpx",
+                "1GWl2FHVXkm3EIUYjnz4DJTZioy5CKS hpx6BLRagqw7AMQbfrv8 NPcesu9Odt",
+                "1l2km3jn4io5hp6gq7fr8es9dt cuAbvBawC xDZyEYzFXGWHVIUJTKSLRMQNPO",
+                "1 2Za3Yb4Xc5Wd6Ve7Uf8Tg9Sh RiAQjzBPkyCOlxDNmwEMnvFLouGKptHJqsIr",
+                "1b2ac3 d4Ze5Yf6Xg7Wh8Vi9Uj TkASlBRmCQnDPoEOpzFNqyGMrxHLswIKtvJu",
+                "123456789 ABCDEFGzHyIxJwKvLuMtNsOrPqQpRoSnTmUlVkWjXiYhZg faebdc",
+                "123456789 ABCDEFGHIJKLMNOPQRSTUVWXYZ zaybxcwdveuftgshriqjpkolnm",
+                "1I r2HJZaqs3GKYbpt4FLXcou5EMWdnv6DNVemw7COUflx8BPTgky9AQShjz Ri"
+            };
             answers = new string[expect.Length];
         };
 
@@ -16,7 +47,7 @@ namespace RailFenceCypher.Specs
         {
             for (var i = 0; i < expect.Length; i++)
             {
-                answers[i] = Cypher.Encode(inputString, inputRails[i]);
+                answers[i] = Cypher.Encode(inputStrings[i], inputRails[i]);
             }
         };
 
@@ -28,7 +59,7 @@ namespace RailFenceCypher.Specs
             }
         };
 
-        private static string inputString;
+        private static string[] inputStrings;
         private static int[] inputRails;
         private static string[] expect;
         private static string[] answers;
@@ -40,10 +71,32 @@ namespace RailFenceCypher.Specs
         {
             inputStrings = new string[]
             {
-                "WECRLTEERDSOEEFEAOCAIVDEN","WIREEEDSEEEACAECVDLTNROFO", "WREEEECAVDNROFOECLTDSEAIE"
+               "ACEGIKMOQSUWYBDFHJLNPRTVXZ",
+               "AEIMQUYBDFHJLNPRTVXZCGKOSW",
+               "AGMSYBFHLNRTXZCEIKOQUWDJPV",
+               "AIQYBHJPRXZCGKOSWDFLNTVEMU",
+               "AKUBJLTVCIMSWDHNRXEGOQYFPZ",
+               "AMYBLNXZCKOWDJPVEIQUFHRTGS",
+               "AOBNPCMQDLRZEKSYFJTXGIUWHV",
+               "AQBPRCOSDNTEMUFLVGKWHJXZIY",
+               "ASBRTCQUDPVEOWFNXGMYHLZIKJ"
             };
-            inputRails = new int[] { 3, 4, 7 };
-            expect = "WEAREDISCOVEREDFLEEATONCE";
+            inputRails = new int[] 
+            {
+                2,3,4,5,6,7,8,9,10
+            };
+            expect = new string[] 
+            { 
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            };
             answers = new string[inputStrings.Length];
         };
 
@@ -59,13 +112,20 @@ namespace RailFenceCypher.Specs
         {
             for (var i = 0; i < inputStrings.Length; i++)
             {
-                answers[i].ShouldEqual(expect);
+                if (answers[i] != expect[i])
+                {
+                    var ans = answers[i];
+                    var exp = expect[i];
+                    var inp = inputStrings[i];
+                    var rails = inputRails[i];
+                }
+                answers[i].ShouldEqual(expect[i]);
             }
         };
 
         private static string[] inputStrings;
         private static int[] inputRails;
-        private static string expect;
+        private static string[] expect;
         private static string[] answers;
     }
 
@@ -107,42 +167,55 @@ namespace RailFenceCypher.Specs
     {
         Establish context = () =>
         {
-            inputStrings = new string[] { "1243", "15243", "152463", "1524637", "15246837" };
-            rails = new[] { 3, 3, 3, 3, 3 };
-            expected = new List<char>[][]
+            inputStrings = new string[] { "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ","1243", "15243", "152463", "1524637", "15246837" };
+            rails = new[] { 10,3, 3, 3, 3, 3 };
+            expected = new string[][]
             {
-                new List<char>[]
+                new string[]
                 {
-                    new List<char> { '1' },
-                    new List<char> { '2', '4' },
-                    new List<char> { '3' }
+                    "12",
+                    "345",
+                    "6789",
+                    "ABCD",
+                    "EFGH",
+                    "IJKL",
+                    "MNOP",
+                    "QRST",
+                    "UVWX",
+                    "YZ"
                 },
-                new List<char>[]
+                new string[]
                 {
-                    new List<char> { '1','5' },
-                    new List<char> { '2', '4' },
-                    new List<char> { '3' }
+                    "1",
+                    "24",
+                    "3"
                 },
-                new List<char>[]
+                new string[]
                 {
-                    new List<char> { '1','5' },
-                    new List<char> { '2', '4','6' },
-                    new List<char> { '3' }
+                    "15",
+                    "24",
+                    "3"
                 },
-                new List<char>[]
+                new string[]
                 {
-                    new List<char> { '1','5' },
-                    new List<char> { '2', '4','6' },
-                    new List<char> { '3','7' }
+                    "15",
+                    "246",
+                    "3"
                 },
-                new List<char>[]
+                new string[]
                 {
-                    new List<char> { '1','5' },
-                    new List<char> { '2', '4','6','8' },
-                    new List<char> { '3','7' }
+                    "15",
+                    "246",
+                    "37"
+                },
+                new string[]
+                {
+                    "15",
+                    "2468",
+                    "37"
                 },
             };
-            answer = new List<char>[expected.Length][];
+            answer = new string[expected.Length][];
         };
 
         Because of = () =>
@@ -166,48 +239,48 @@ namespace RailFenceCypher.Specs
 
         private static string[] inputStrings;
         private static int[] rails;
-        private static List<char>[][] expected;
-        private static List<char>[][] answer;
+        private static string[][] expected;
+        private static string[][] answer;
     }
 
     public class When_Decoding_A_Message_From_The_Rails
     {
         Establish context = () =>
         {
-            input = new List<char>[][]
+            input = new string[][]
             {
-                //new List<char>[]
-                //{
-                //    new List<char> { '1' },
-                //    new List<char> { '2', '4' },
-                //    new List<char> { '3' }
-                //},
-                //new List<char>[]
-                //{
-                //    new List<char> { '1','5' },
-                //    new List<char> { '2', '4' },
-                //    new List<char> { '3' }
-                //},
-                new List<char>[]
+                new string[]
                 {
-                    new List<char> { '1','5' },
-                    new List<char> { '2', '4','6' },
-                    new List<char> { '3' }
+                    "1",
+                    "24",
+                    "3"
                 },
-                new List<char>[]
+                new string[]
                 {
-                    new List<char> { '1','5' },
-                    new List<char> { '2', '4','6' },
-                    new List<char> { '3','7' }
+                    "15",
+                    "24",
+                    "3"
                 },
-                new List<char>[]
+                new string[]
                 {
-                    new List<char> { '1','5' },
-                    new List<char> { '2', '4','6','8' },
-                    new List<char> { '3','7' }
+                    "15",
+                    "246",
+                    "3"
+                },
+                new string[]
+                {
+                    "15",
+                    "246",
+                    "37"
+                },
+                new string[]
+                {
+                    "15",
+                    "2468",
+                    "37"
                 },
             };
-            expected = new string[] { /*"1234",*/ /*"12345",*/ "123456", "1234567", "12345678" };
+            expected = new string[] { "1234","12345", "123456", "1234567", "12345678" };
             answers = new string[input.Length];
         };
 
@@ -227,7 +300,7 @@ namespace RailFenceCypher.Specs
             }
         };
 
-        private static List<char>[][] input;
+        private static string[][] input;
         private static string[] expected;
         private static string[] answers;
     }
